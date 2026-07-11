@@ -1,0 +1,6 @@
+{
+  "name": "EliteModz",
+  "description": "Premium Indian automotive accessories and customization brand offering high-quality car styling, protection, lighting, detailing, electronics, and performance enhancement solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

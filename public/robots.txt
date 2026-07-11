@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elitemodz.vercel.app/sitemap.xml
