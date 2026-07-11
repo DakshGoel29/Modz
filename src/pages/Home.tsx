@@ -239,7 +239,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-4xl md:text-6xl font-heading font-bold mt-6 tracking-tight"
             >
-              Why Choose EliteModz
+              Why Choose Supreme EliteModz
             </motion.h3>
           </div>
 
