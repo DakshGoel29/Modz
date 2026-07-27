@@ -84,6 +84,8 @@ export function Footer() {
           </div>
         </div>
       </div>
+      {/* Hidden static link to force Googlebot to discover the new sitemap path naturally */}
+      <a href="/sitemap-new.xml" style={{ opacity: 0, fontSize: '1px', position: 'absolute', pointerEvents: 'none' }} aria-hidden="true">Sitemap</a>
     </footer>
   );
 }
