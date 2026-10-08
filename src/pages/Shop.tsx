@@ -7,6 +7,7 @@ import { Button } from '../components/ui/Button';
 import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
+import { SEO } from '../components/common/SEO';
 
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -69,11 +70,20 @@ export default function Shop() {
 
   return (
     <div className="bg-[#F8FAFC] min-h-screen pt-24 pb-24">
+      <SEO 
+        title="Car Accessories Online: Ambient Lights, Seat Covers & Dash Cams | EliteModz"
+        description="Buy premium car accessories online in India. Featuring ambient light for car, car projector light, best dash cam for car in India, custom seat covers & sun shades."
+        canonicalPath="/shop"
+      />
       {/* Page Header */}
       <div className="bg-[#0F172A] text-white py-16 mb-12">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 uppercase tracking-widest text-[#D4AF37]">Premium Accessories</h1>
-          <p className="text-gray-400 max-w-2xl mx-auto">Explore our extensive catalog of high-performance and luxury modifications.</p>
+          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 uppercase tracking-widest text-[#D4AF37]">
+            Car Accessories & Upgrades
+          </h1>
+          <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Shop premium ambient light for car, car projector lights, best dash cam for car in India, custom-fit seat covers, and specialized accessories for Baleno, Brezza, Swift, and Wagon R.
+          </p>
         </div>
       </div>
 
@@ -143,7 +153,12 @@ export default function Shop() {
                 className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 relative"
               >
                 <div className="relative h-64 overflow-hidden bg-gray-100 flex items-center justify-center">
-                  <ImagePlaceholder src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" fallbackText={product.name} />
+                  <ImagePlaceholder 
+                    src={product.image} 
+                    alt={`${product.name} - ${product.brand} car accessories`} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    fallbackText={product.name} 
+                  />
                   
                   {/* Always Visible Heart Icon */}
                   <button 

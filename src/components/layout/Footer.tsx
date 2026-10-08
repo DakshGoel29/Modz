@@ -31,6 +31,7 @@ export function Footer() {
               <li><Link to="/about" className="hover:text-[#D4AF37] transition-colors">Our Story</Link></li>
               <li><Link to="/shop" className="hover:text-[#D4AF37] transition-colors">Shop Accessories</Link></li>
               <li><Link to="/services" className="hover:text-[#D4AF37] transition-colors">Premium Services</Link></li>
+              <li><Link to="/blog" className="hover:text-[#D4AF37] transition-colors">Blog & Guides</Link></li>
               <li><Link to="/reviews" className="hover:text-[#D4AF37] transition-colors">Customer Reviews</Link></li>
               <li><Link to="/careers" className="hover:text-[#D4AF37] transition-colors">Careers</Link></li>
             </ul>
@@ -68,9 +69,33 @@ export function Footer() {
         </div>
 
         <div className="border-t border-[#1E293B] pt-8 pb-4 mb-4">
-          <p className="text-xs text-gray-500 leading-relaxed">
-            <strong className="text-gray-400">Popular Searches:</strong> car accessories, car lights, car decoration, car dashboard accessories, car hanging accessories, car interior accessories, baleno car accessories, brezza car accessories, car perfume, car seat cover, car shades, car dash cam, EliteModz Gurugram, car accessories online, best car accessories.
-          </p>
+          <div className="text-xs text-gray-500 leading-relaxed flex flex-wrap items-center gap-x-2 gap-y-1">
+            <strong className="text-gray-400 mr-1">Popular Searches:</strong>
+            {[
+              "ambient light for car",
+              "baleno car accessories",
+              "brezza car accessories",
+              "Car projector light",
+              "wagon r car accessories",
+              "exterior car accessories",
+              "best car perfume",
+              "seat cover for car",
+              "Sun shades for car",
+              "Best dash cam for car in India",
+              "swift car accessories",
+              "car light accessories"
+            ].map((kw, idx, arr) => (
+              <span key={kw} className="inline-flex items-center">
+                <Link 
+                  to={`/shop?search=${encodeURIComponent(kw)}`}
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  {kw}
+                </Link>
+                {idx < arr.length - 1 && <span className="ml-2 text-gray-700">|</span>}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="border-t border-[#1E293B] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
@@ -84,8 +109,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-      {/* Hidden static link to force Googlebot to discover the new sitemap path naturally */}
-      <a href="/sitemap-new.xml" style={{ opacity: 0, fontSize: '1px', position: 'absolute', pointerEvents: 'none' }} aria-hidden="true">Sitemap</a>
     </footer>
   );
 }

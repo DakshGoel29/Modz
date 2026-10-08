@@ -3,14 +3,20 @@ import { SERVICES } from '../data/mockData';
 import { Button } from '../components/ui/Button';
 import { CheckCircle2, ChevronRight } from 'lucide-react';
 import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
+import { SEO } from '../components/common/SEO';
 
 export default function Services() {
   return (
     <div className="bg-white min-h-screen pt-24 pb-24">
+      <SEO 
+        title="Car Customization & Installation Services Gurugram | EliteModz"
+        description="Professional ambient light for car, car projector light, dash cam hardwiring & seat cover installation services in Gurugram, Haryana. 100% warranty safe."
+        canonicalPath="/services"
+      />
       {/* Header */}
       <div className="bg-[#0F172A] relative py-20 mb-16 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
-          <ImagePlaceholder src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="Background" fallbackText="Services" />
+          <ImagePlaceholder src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="EliteModz Car Customization Workshop in Gurugram" fallbackText="Services" />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center text-white">
           <motion.div 
@@ -18,10 +24,14 @@ export default function Services() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-block bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase mb-6"
           >
-            Currently Available in Gurugram Only
+            Studio in Sector 44, Gurugram
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">Premium Auto Services</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">Expert installation, detailing, and custom modifications to elevate your driving experience.</p>
+          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4">
+            Car Customization & Installation Services
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Professional fitting for ambient light for car, car projector lights, best dash cam for car in India, custom seat covers, and exterior car accessories by certified master technicians.
+          </p>
         </div>
       </div>
 
@@ -48,7 +58,12 @@ export default function Services() {
                 >
                   View Details
                 </motion.div>
-                <ImagePlaceholder src={service.image} alt={service.name} className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out" fallbackText={service.name} />
+                <ImagePlaceholder 
+                  src={service.image} 
+                  alt={`${service.name} - Professional automotive installation at EliteModz Gurugram`} 
+                  className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out" 
+                  fallbackText={service.name} 
+                />
               </div>
 
               <h3 className="text-2xl font-heading font-extrabold text-[#0F172A] mb-3 group-hover:text-[#D4AF37] transition-colors duration-300 tracking-tight">{service.name}</h3>

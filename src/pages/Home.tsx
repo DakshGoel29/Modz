@@ -6,6 +6,7 @@ import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
 import { TestimonialSlider } from '../components/ui/TestimonialSlider';
 import { FEATURED_CATEGORIES, PRODUCTS, TESTIMONIALS } from '../data/mockData';
 import { ArrowRight, Star, ShieldCheck, Wrench, Truck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { SEO } from '../components/common/SEO';
 
 export default function Home() {
   // Parallax setup
@@ -36,6 +37,11 @@ export default function Home() {
 
   return (
     <div className="bg-background overflow-hidden relative">
+      <SEO 
+        title="EliteModz: Ambient Light For Car, Seat Covers & Car Accessories India"
+        description="Shop ambient light for car, car projector lights, best dash cam for car in India, custom seat covers, sun shades & exterior accessories for Baleno, Brezza, Swift & Wagon R."
+        canonicalPath="/"
+      />
       {/* Sleek Abstract Hero Section */}
       <section 
         className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#020617] pt-20"
@@ -83,9 +89,12 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h1 className="text-6xl md:text-8xl lg:text-[8rem] font-heading font-extrabold leading-[1.05] tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40 drop-shadow-sm">
+              <h1 className="text-6xl md:text-8xl lg:text-[8rem] font-heading font-extrabold leading-[1.05] tracking-tighter mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40 drop-shadow-sm">
                 REDEFINE<br/>YOUR DRIVE
               </h1>
+              <span className="block text-sm md:text-base font-semibold uppercase tracking-[0.25em] text-[#D4AF37] mb-6">
+                Ambient Light For Car, Seat Covers & Auto Accessories India
+              </span>
             </motion.div>
 
             <motion.p 
@@ -94,7 +103,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg md:text-2xl text-gray-300/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light"
             >
-              Where supreme aesthetics meet unyielding performance. Curating India’s most exclusive car accessories, from premium car lights and dash cams to luxury car interior accessories, car seat covers, and car shades at EliteModz Gurugram.
+              Where supreme aesthetics meet unyielding performance. Curating India’s most exclusive exterior car accessories and ambient light for car, from car projector lights and the best dash cam for car in India to premium seat covers for car and sun shades.
             </motion.p>
             
             <motion.div 
@@ -198,7 +207,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/20 to-transparent z-10 transition-opacity duration-500 group-hover:from-[#D4AF37]/90"></div>
                   <ImagePlaceholder 
                     src={cat.image} 
-                    alt={cat.name} 
+                    alt={`${cat.name} - Custom car accessories & styling upgrades`} 
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     fallbackIcon={false}
                     fallbackText={cat.name}
@@ -239,7 +248,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-4xl md:text-6xl font-heading font-bold mt-6 tracking-tight"
             >
-              Why Choose Supreme EliteModz
+              Why Choose EliteModz
             </motion.h3>
           </div>
 
@@ -322,7 +331,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
                   <div className="w-20 h-20 md:w-24 md:h-24 bg-[#F8FAFC] rounded-2xl flex items-center justify-center p-5 group-hover:scale-110 group-hover:bg-[#D4AF37]/5 transition-all duration-300 relative z-10 shadow-inner">
-                    <img src={brand.logo} alt={brand.name} loading="lazy" className="w-full h-full object-contain filter opacity-100 group-hover:drop-shadow-lg transition-all duration-300" />
+                    <img src={brand.logo} alt={`${brand.name} compatible car accessories & custom modifications`} loading="lazy" className="w-full h-full object-contain filter opacity-100 group-hover:drop-shadow-lg transition-all duration-300" />
                   </div>
                   
                   <span className="font-heading font-extrabold text-sm md:text-base text-gray-700 group-hover:text-[#0F172A] tracking-widest uppercase transition-colors duration-300 relative z-10">

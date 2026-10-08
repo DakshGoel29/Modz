@@ -3,14 +3,24 @@ import { motion } from 'motion/react';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
 import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/common/SEO';
 
 export default function Blog() {
   return (
     <div className="bg-[#F8FAFC] min-h-screen pt-24 pb-24">
+      <SEO 
+        title="Car Accessories & Modification Guides | EliteModz Blog"
+        description="Read comprehensive guides on ambient light for car, car projector light installation, best dash cam for car in India & styling for Baleno, Brezza, Swift and Wagon R."
+        canonicalPath="/blog"
+      />
       <div className="bg-[#0F172A] relative py-20 mb-16 overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4 uppercase tracking-widest text-[#D4AF37]">Modz Chronicle</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">Insights, guides, trends and stories from the automotive customization world.</p>
+          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 uppercase tracking-widest text-[#D4AF37]">
+            Car Accessories & Modification Guides
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+            Expert insights on ambient light for car, car projector lights, the best dash cam for car in India, custom seat covers, and top car accessories.
+          </p>
         </div>
       </div>
 
@@ -26,7 +36,12 @@ export default function Blog() {
               className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col sm:flex-row h-full"
             >
               <div className="w-full sm:w-2/5 overflow-hidden relative">
-                <ImagePlaceholder src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[250px] sm:min-h-full" fallbackText={post.title} />
+                <ImagePlaceholder 
+                  src={post.image} 
+                  alt={`${post.title} - Car customization guide`} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[250px] sm:min-h-full" 
+                  fallbackText={post.title} 
+                />
                 <div className="absolute top-4 left-4 bg-[#D4AF37] text-white text-xs font-bold px-3 py-1 uppercase tracking-widest rounded-sm">
                   {post.category}
                 </div>

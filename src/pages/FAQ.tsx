@@ -5,19 +5,43 @@ import { Plus, Minus, MessageCircle } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Link } from 'react-router-dom';
 import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
+import { SEO } from '../components/common/SEO';
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  };
+
   return (
     <div className="bg-[#F8FAFC] min-h-screen pt-24 pb-24">
+      <SEO 
+        title="Car Accessories FAQ | Ambient Light, Dash Cam & Installation | EliteModz"
+        description="Frequently asked questions about ambient light for car, car projector lights, best dash cam for car in India, custom seat covers & warranty safety."
+        canonicalPath="/faq"
+        schema={faqSchema}
+      />
       <div className="bg-[#0F172A] relative py-20 mb-16 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">
-          <ImagePlaceholder src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="FAQ Background" fallbackText="FAQ" />
+          <ImagePlaceholder src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="EliteModz Customer Support and Frequently Asked Questions" fallbackText="FAQ" />
         </div>
         <div className="container mx-auto px-4 text-center text-white relative z-10">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 uppercase tracking-widest text-[#D4AF37]">Frequently Asked Questions</h1>
-          <p className="text-gray-400 text-lg">Everything you need to know about our products and services.</p>
+          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 uppercase tracking-widest text-[#D4AF37]">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Everything you need to know about ambient light for car, dash cams, projector lights, and custom seat covers.
+          </p>
         </div>
       </div>
 

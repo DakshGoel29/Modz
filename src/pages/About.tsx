@@ -31,7 +31,7 @@ export default function About() {
           <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-sm font-semibold mb-6">Our Story</h2>
           <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
             Founded in 2018, EliteModz started with a simple mission: to bring premium automotive accessories and customization solutions to car enthusiasts across India.
-            What began as a small garage operation offering the best car accessories in Gurugram has grown into one of India's fastest-growing automotive lifestyle brands. Today, we are the go-to destination for car accessories online, from bespoke car decoration and luxury car seat covers to cutting-edge car dash cams and car shades.
+            What began as a small garage operation has grown into one of India's fastest-growing automotive lifestyle brands. Today, we are the go-to destination for car light accessories, ambient light for car, custom seat cover for car solutions, sun shades for car, and the best dash cam for car in India.
           </p>
         </div>
 

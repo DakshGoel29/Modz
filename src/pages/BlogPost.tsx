@@ -3,6 +3,7 @@ import { BLOG_POSTS } from '../data/mockData';
 import { Button } from '../components/ui/Button';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
+import { SEO } from '../components/common/SEO';
 
 export default function BlogPost() {
   const { id } = useParams();
@@ -19,8 +20,32 @@ export default function BlogPost() {
     );
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": post.image,
+    "datePublished": "2026-06-24",
+    "author": {
+      "@type": "Organization",
+      "name": "EliteModz"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "EliteModz",
+      "url": "https://elitemodz.vercel.app/"
+    },
+    "description": `Comprehensive automotive customization and accessory guide on ${post.title}.`
+  };
+
   return (
     <div className="bg-white min-h-screen pt-24 pb-24">
+      <SEO 
+        title={`${post.title} | EliteModz Blog`}
+        description={`Read our complete guide on ${post.title}. Discover professional tips on ambient light for car, car projector lights, dash cams, and custom accessories.`}
+        canonicalPath={`/blog/${post.id}`}
+        schema={articleSchema}
+      />
       <div className="container mx-auto px-4 max-w-4xl">
         <Link to="/blog" className="inline-flex items-center gap-2 text-gray-500 hover:text-[#D4AF37] mb-8 transition-colors">
           <ArrowLeft size={20} /> Back to Blog
@@ -28,7 +53,12 @@ export default function BlogPost() {
 
         <div className="bg-[#F8FAFC] rounded-3xl overflow-hidden shadow-sm border border-gray-100">
           <div className="w-full h-64 md:h-96 relative">
-            <ImagePlaceholder src={post.image} alt={post.title} className="w-full h-full object-cover" fallbackText={post.title} />
+            <ImagePlaceholder 
+              src={post.image} 
+              alt={`${post.title} - EliteModz guide`} 
+              className="w-full h-full object-cover" 
+              fallbackText={post.title} 
+            />
             <div className="absolute top-4 left-4 bg-[#D4AF37] text-white text-xs font-bold px-3 py-1 uppercase tracking-widest rounded-sm">
               {post.category}
             </div>

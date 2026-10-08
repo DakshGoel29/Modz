@@ -2,18 +2,45 @@ import { motion } from 'motion/react';
 import { Button } from '../components/ui/Button';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
+import { SEO } from '../components/common/SEO';
 
 export default function Contact() {
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "AutoPartsStore",
+    "name": "EliteModz",
+    "url": "https://elitemodz.vercel.app/contact",
+    "telephone": "+91 98765 43210",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Sector 44",
+      "addressLocality": "Gurugram",
+      "addressRegion": "Haryana",
+      "postalCode": "122003",
+      "addressCountry": "IN"
+    }
+  };
+
   return (
     <div className="bg-white min-h-screen pt-24 pb-24">
+      <SEO 
+        title="Contact EliteModz | Car Customization Studio Gurugram"
+        description="Visit or contact EliteModz in Sector 44, Gurugram for ambient light for car, car projector light fitting, dash cam hardwiring, and custom seat covers."
+        canonicalPath="/contact"
+        schema={contactSchema}
+      />
       {/* Header */}
       <div className="bg-[#0F172A] py-20 mb-16 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
-          <ImagePlaceholder src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="Contact Background" fallbackText="Contact" />
+          <ImagePlaceholder src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="EliteModz Customer Studio in Gurugram" fallbackText="Contact" />
         </div>
         <div className="container mx-auto px-4 text-center text-white relative z-10">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 uppercase tracking-widest text-[#D4AF37]">Contact Us</h1>
-          <p className="text-gray-400 max-w-2xl mx-auto">Get in touch with our expert team for consultation, bookings, or support.</p>
+          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 uppercase tracking-widest text-[#D4AF37]">
+            Contact EliteModz Gurugram
+          </h1>
+          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+            Connect with our automotive specialists for custom advice, product consultations, and installation bookings.
+          </p>
         </div>
       </div>
 
