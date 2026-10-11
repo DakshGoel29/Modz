@@ -12,7 +12,7 @@ export interface SEOProps {
 }
 
 const DEFAULT_KEYWORDS = 
-  "ambient light for car, baleno car accessories, brezza car accessories, Car projector light, wagon r car accessories, exterior car accessories, best car perfume, seat cover for car, Sun shades for car, Best dash cam for car in India, swift car accessories, car light accessories, EliteModz Gurugram";
+  "ambient light for car, baleno car accessories, brezza car accessories, Car projector light, wagon r car accessories, exterior car accessories, best car perfume, seat cover for car, Sun shades for car, Best dash cam for car in India, swift car accessories, car light accessories, EliteModz India";
 
 const SITE_NAME = "EliteModz";
 const BASE_URL = "https://elitemodz.vercel.app";

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
 import { TestimonialSlider } from '../components/ui/TestimonialSlider';
-import { FEATURED_CATEGORIES, PRODUCTS, TESTIMONIALS } from '../data/mockData';
-import { ArrowRight, Star, ShieldCheck, Wrench, Truck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FEATURED_CATEGORIES, PRODUCTS, POPULAR_CAR_MODELS, TARGET_KEYWORDS_LIST } from '../data/mockData';
+import { ArrowRight, Star, ShieldCheck, Wrench, Truck, Sparkles, CheckCircle2, Car } from 'lucide-react';
 import { SEO } from '../components/common/SEO';
 
 export default function Home() {
@@ -38,24 +38,22 @@ export default function Home() {
   return (
     <div className="bg-background overflow-hidden relative">
       <SEO 
-        title="EliteModz: Ambient Light For Car, Seat Covers & Car Accessories India"
-        description="Shop ambient light for car, car projector lights, best dash cam for car in India, custom seat covers, sun shades & exterior accessories for Baleno, Brezza, Swift & Wagon R."
+        title="EliteModz: Ambient Light For Car & Car Accessories India"
+        description="Explore ambient light for car, car projector lights, best dash cam for car in India, seat covers & sun shades for Baleno, Brezza, Swift & Wagon R at EliteModz."
         canonicalPath="/"
       />
       {/* Sleek Abstract Hero Section */}
       <section 
-        className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#020617] pt-20"
+        className="relative min-h-[92vh] flex items-center overflow-hidden bg-[#020617] pt-24 pb-16"
         onMouseMove={handleMouseMove}
         onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
       >
         {/* Animated Background Slider & Grid */}
         <div className="absolute inset-0 z-0 pointer-events-none bg-[#0a0a0a]">
-          {/* Deep Blue/Purple Gradient Mesh Background */}
           <div className="absolute inset-0 z-0 overflow-hidden bg-[radial-gradient(ellipse_at_top,_#1e1b4b_0%,_#000000_100%)]">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e51a_1px,transparent_1px),linear-gradient(to_bottom,#4f46e51a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
           </div>
 
-          {/* Continuous Glowing Waves Overlay - Hardware Accelerated */}
           <div className="absolute inset-0 z-0 hidden md:block opacity-60">
             <motion.div style={{ x: parallax1X, y: parallax1Y, willChange: "transform" }} className="absolute inset-0">
               <motion.div 
@@ -73,12 +71,10 @@ export default function Home() {
             </motion.div>
           </div>
           
-          {/* Perspective Grid Line (Horizontal Only) - Hidden on mobile for performance */}
           <motion.div style={{ x: parallax3X, y: parallax3Y, willChange: "transform" }} className="absolute inset-0 z-0 hidden md:block">
             <div className="absolute bottom-0 left-0 right-0 h-[60vh] bg-[linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:100%_4rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_100%,#000_60%,transparent_100%)] transform perspective-[1000px] rotateX-[60deg] scale-150 origin-bottom blur-[1px]"></div>
           </motion.div>
           
-          {/* Subtle noise texture */}
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
         </div>
         
@@ -89,11 +85,14 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h1 className="text-6xl md:text-8xl lg:text-[8rem] font-heading font-extrabold leading-[1.05] tracking-tighter mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40 drop-shadow-sm">
+              <div className="inline-flex items-center gap-2 bg-[#D4AF37]/15 border border-[#D4AF37]/40 rounded-full px-5 py-2 mb-6 text-xs md:text-sm font-semibold tracking-wider uppercase text-[#D4AF37]">
+                <Sparkles size={16} /> India's Premium Automotive Customization Hub
+              </div>
+              <h1 className="text-5xl md:text-7xl lg:text-[7.5rem] font-heading font-extrabold leading-[1.05] tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/60 drop-shadow-sm">
                 REDEFINE<br/>YOUR DRIVE
               </h1>
-              <span className="block text-sm md:text-base font-semibold uppercase tracking-[0.25em] text-[#D4AF37] mb-6">
-                Ambient Light For Car, Seat Covers & Auto Accessories India
+              <span className="block text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-[#D4AF37] mb-6">
+                Ambient Light For Car • Seat Covers • Car Projector Lights • Dash Cams
               </span>
             </motion.div>
 
@@ -101,126 +100,153 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="text-lg md:text-2xl text-gray-300/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-base md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
             >
-              Where supreme aesthetics meet unyielding performance. Curating India’s most exclusive exterior car accessories and ambient light for car, from car projector lights and the best dash cam for car in India to premium seat covers for car and sun shades.
+              Discover India's most sought-after car upgrades: <strong>ambient light for car</strong>, precision <strong>car projector light</strong> retrofits, the <strong>best dash cam for car in India</strong>, breathable <strong>seat cover for car</strong> solutions, magnetic <strong>sun shades for car</strong>, <strong>best car perfume</strong>, and specialized <strong>exterior car accessories</strong> for <strong>Baleno</strong>, <strong>Brezza</strong>, <strong>Swift</strong>, and <strong>Wagon R</strong>.
             </motion.p>
             
+            {/* Quick Model Links */}
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap justify-center gap-2 mb-10 text-xs md:text-sm font-medium"
+            >
+              <span className="text-gray-400 self-center mr-1">Top Models:</span>
+              {POPULAR_CAR_MODELS.map(model => (
+                <Link
+                  key={model.name}
+                  to={`/shop?model=${model.name}`}
+                  className="bg-white/10 hover:bg-[#D4AF37] hover:text-[#0A0A0A] border border-white/20 px-3.5 py-1.5 rounded-full transition-all text-gray-200"
+                >
+                  {model.tag}
+                </Link>
+              ))}
+            </motion.div>
+
             <motion.div 
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row justify-center gap-6"
+              className="flex flex-col sm:flex-row justify-center gap-5"
             >
               <Link to="/shop">
                 <button className="w-full sm:w-auto relative group bg-[#D4AF37] text-[#0A0A0A] hover:bg-white py-4 px-10 rounded-full font-bold transition-colors duration-300 text-xs tracking-[0.2em] uppercase h-14">
-                  <span className="relative z-10 flex items-center justify-center gap-2">Enter The Gallery</span>
+                  <span className="relative z-10 flex items-center justify-center gap-2">Explore Showcase <ArrowRight size={16} /></span>
                 </button>
               </Link>
-              <Link to="/about">
+              <Link to="/services">
                 <button className="w-full sm:w-auto bg-white/5 backdrop-blur-md border border-white/20 text-white hover:bg-white/10 hover:border-white/50 py-4 px-10 rounded-full font-bold transition-all text-xs tracking-[0.2em] uppercase h-14">
-                  Discover Our Vision
+                  Fitment Guides
                 </button>
               </Link>
             </motion.div>
           </div>
         </div>
 
-        {/* Dynamic bottom fade to avoid harsh borders */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none" />
       </section>
 
-      {/* Trust Counters */}
-      <section className="py-16 bg-[#050505] text-white relative z-30">
+      {/* Target Model Spotlight Section */}
+      <section className="py-20 bg-[#050505] text-white border-b border-white/10 relative z-30">
         <div className="container mx-auto px-4 lg:px-16">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {[
-              { label: 'Happy Customers', value: '50k+' },
-              { label: 'Premium Products', value: '10k+' },
-              { label: 'Cities Nationwide', value: '120+' },
-              { label: 'Average Rating', value: '4.9/5' }
-            ].map((stat, i) => (
-              <motion.div 
+          <div className="text-center mb-12">
+            <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-xs md:text-sm font-semibold mb-2">Dedicated Vehicle Collections</h2>
+            <h3 className="text-3xl md:text-5xl font-heading font-bold">Engineered For Your Car</h3>
+            <p className="text-gray-400 max-w-2xl mx-auto mt-3 text-sm md:text-base">
+              Precision-fit seat covers, magnetic sun shades, ambient lighting, and exterior accessories designed for India's best-selling cars.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {POPULAR_CAR_MODELS.map((model, idx) => (
+              <motion.div
+                key={model.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-                key={i} 
-                className="text-center p-8 rounded-3xl bg-[#0F172A]/40 border border-white/5 backdrop-blur-xl hover:bg-[#0F172A]/70 hover:border-[#D4AF37]/50 transition-all shadow-2xl relative overflow-hidden group cursor-default"
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                className="bg-[#0F172A]/70 border border-white/10 rounded-3xl p-6 hover:border-[#D4AF37]/60 hover:bg-[#0F172A] transition-all group flex flex-col justify-between"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/0 to-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <motion.div 
-                  className="text-4xl md:text-6xl font-heading font-semibold text-white mb-3 relative z-10"
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] mb-4 group-hover:scale-110 transition-transform">
+                    <Car size={24} />
+                  </div>
+                  <h4 className="text-xl font-heading font-bold text-white mb-1 group-hover:text-[#D4AF37] transition-colors">
+                    {model.name}
+                  </h4>
+                  <div className="text-xs text-[#D4AF37] font-semibold uppercase tracking-wider mb-3">
+                    {model.tag}
+                  </div>
+                  <p className="text-gray-400 text-xs leading-relaxed mb-6">
+                    {model.desc}
+                  </p>
+                </div>
+                <Link
+                  to={`/shop?model=${model.name}`}
+                  className="inline-flex items-center justify-between text-xs font-bold text-white uppercase tracking-widest py-2.5 px-4 rounded-xl bg-white/5 group-hover:bg-[#D4AF37] group-hover:text-black transition-all"
                 >
-                  {stat.value}
-                </motion.div>
-                <div className="text-xs md:text-sm text-[#D4AF37] font-bold tracking-[0.1em] uppercase relative z-10">{stat.label}</div>
+                  <span>Explore Kit</span>
+                  <ArrowRight size={14} />
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Categories (Bento Grid) */}
-      <section className="py-32 bg-white relative">
-        <div className="container mx-auto px-4">
+      {/* Featured Categories */}
+      <section className="py-28 bg-white relative">
+        <div className="container mx-auto px-4 lg:px-16">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-sm font-semibold mb-3">Curated Selection</h2>
-              <h3 className="text-4xl md:text-6xl font-heading font-bold text-[#0F172A] tracking-tight">The Essentials</h3>
+              <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-xs md:text-sm font-semibold mb-2">High-Intent Upgrades</h2>
+              <h3 className="text-4xl md:text-5xl font-heading font-bold text-[#0F172A] tracking-tight">Trending Categories</h3>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Link to="/shop" className="group inline-flex items-center gap-3 font-semibold text-[#0F172A] hover:text-[#D4AF37] transition-colors uppercase tracking-widest text-sm pb-2 border-b-2 border-transparent hover:border-[#D4AF37]">
+              <Link to="/shop" className="group inline-flex items-center gap-3 font-semibold text-[#0F172A] hover:text-[#D4AF37] transition-colors uppercase tracking-widest text-xs md:text-sm pb-2 border-b-2 border-transparent hover:border-[#D4AF37]">
                 View All Categories <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
               </Link>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
-            {FEATURED_CATEGORIES.slice(0, 5).map((cat, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {FEATURED_CATEGORIES.map((cat, i) => (
               <motion.div 
                 key={cat.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className={`group relative overflow-hidden rounded-3xl cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500 ${
-                  i === 0 ? 'md:col-span-8 md:row-span-2' : 
-                  i === 1 ? 'md:col-span-4 md:row-span-1' :
-                  i === 2 ? 'md:col-span-4 md:row-span-1' :
-                  i === 3 ? 'md:col-span-6 md:row-span-1' :
-                  'md:col-span-6 md:row-span-1'
-                } h-64 md:h-auto`}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="group relative overflow-hidden rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 bg-gray-100 h-80 flex flex-col justify-end"
               >
-                <Link to={`/shop?category=${cat.filterCategory}`} className="block w-full h-full">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/20 to-transparent z-10 transition-opacity duration-500 group-hover:from-[#D4AF37]/90"></div>
+                <Link to={`/shop?search=${encodeURIComponent(cat.keyword)}`} className="block w-full h-full relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/30 to-transparent z-10 transition-opacity duration-500 group-hover:from-[#0F172A]"></div>
                   <ImagePlaceholder 
                     src={cat.image} 
-                    alt={`${cat.name} - Custom car accessories & styling upgrades`} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    alt={`${cat.name} - ${cat.badge}`} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     fallbackIcon={false}
                     fallbackText={cat.name}
                   />
-                  <div className="absolute inset-0 p-8 z-20 flex flex-col justify-end">
-                    <motion.div 
-                      className="transform transition-transform duration-500 group-hover:-translate-y-4"
-                    >
-                      <h3 className="text-white font-heading font-medium text-2xl md:text-3xl tracking-wide mb-2">{cat.name}</h3>
-                      <div className="flex items-center gap-2 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-sm font-semibold uppercase tracking-widest">
-                        Explore <ArrowRight size={16} />
-                      </div>
-                    </motion.div>
+                  <div className="absolute top-4 left-4 z-20 bg-[#D4AF37] text-[#0A0A0A] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    {cat.badge}
+                  </div>
+                  <div className="absolute inset-0 p-6 z-20 flex flex-col justify-end">
+                    <h3 className="text-white font-heading font-bold text-xl md:text-2xl tracking-tight mb-2 group-hover:text-[#D4AF37] transition-colors">
+                      {cat.name}
+                    </h3>
+                    <div className="flex items-center gap-2 text-white/80 text-xs font-semibold uppercase tracking-widest">
+                      Explore Showcase <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </Link>
               </motion.div>
@@ -229,189 +255,159 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us - Dynamic */}
-      <section className="py-32 bg-[#0F172A] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-[#D4AF37]/5 to-transparent pointer-events-none"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
-            <motion.h2 
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-[#D4AF37] tracking-[0.2em] uppercase text-sm font-semibold mb-3 inline-block border border-[#D4AF37]/30 rounded-full px-6 py-2"
-            >
-              The Elite Advantage
-            </motion.h2>
-            <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-heading font-bold mt-6 tracking-tight"
-            >
-              Why Choose EliteModz
-            </motion.h3>
+      {/* Featured Products Spotlight */}
+      <section className="py-24 bg-[#F8FAFC] border-y border-gray-200">
+        <div className="container mx-auto px-4 lg:px-16">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-xs md:text-sm font-semibold mb-2">Most Popular Products</h2>
+            <h3 className="text-3xl md:text-5xl font-heading font-bold text-[#0F172A]">Top Rated By Enthusiasts</h3>
+            <p className="text-gray-600 mt-3 text-sm md:text-base">
+              Equip your vehicle with India's best dash cam, ambient light, projector headlights, custom seat covers, and sun shades.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {[
-              { icon: ShieldCheck, title: "Premium Quality", desc: "We source and manufacture only the highest-grade materials. Genuine 5-year warranty coverage included." },
-              { icon: Wrench, title: "Master Craftsmanship", desc: "Professional fitting available through our nationwide network of certified master technicians." },
-              { icon: Truck, title: "White-Glove Delivery", desc: "Secure, reliable, and fully insured shipping to over 120+ cities nationwide with elite tracking." }
-            ].map((feature, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2 }}
-                className="group p-10 rounded-[2rem] bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 hover:-translate-y-4"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PRODUCTS.slice(0, 6).map((prod) => (
+              <div 
+                key={prod.id} 
+                className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center mb-8 border border-white/10 group-hover:bg-[#D4AF37]/10 group-hover:scale-110 transition-all duration-500">
-                  <feature.icon className="w-10 h-10 text-[#D4AF37]" strokeWidth={1.5} />
-                </div>
-                <h4 className="text-2xl font-heading font-semibold mb-4 text-white group-hover:text-[#D4AF37] transition-colors">{feature.title}</h4>
-                <p className="text-gray-400 leading-relaxed font-light text-lg">{feature.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Compatible Brands (Continuous Slider) */}
-      <section className="py-24 bg-[#F8FAFC] relative overflow-hidden border-y border-gray-200">
-        <div className="absolute top-0 left-0 w-24 md:w-64 h-full bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-24 md:w-64 h-full bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none"></div>
-
-        <div className="container mx-auto px-4 mb-20 text-center relative z-20">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-sm font-bold mb-4">Precision Engineering For</h2>
-            <h3 className="text-4xl md:text-6xl font-heading font-extrabold text-[#0F172A] tracking-tight">Vehicles We <span className="text-[#D4AF37]">Elevate</span></h3>
-            <div className="w-24 h-1 bg-[#D4AF37] mx-auto mt-8"></div>
-          </motion.div>
-        </div>
-
-        <div className="flex w-full overflow-hidden py-10">
-          <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 40, ease: "linear", repeat: Infinity }}
-            style={{ willChange: 'transform' }}
-            className="flex gap-6 md:gap-8 whitespace-nowrap pl-6 md:pl-8 items-center w-max"
-          >
-            {/* Map brands twice for seamless continuous loop */}
-            {[
-              { name: 'BMW', logo: 'https://cdn.simpleicons.org/bmw/0F172A' },
-              { name: 'Audi', logo: 'https://cdn.simpleicons.org/audi/0F172A' },
-              { name: 'Porsche', logo: 'https://cdn.simpleicons.org/porsche/0F172A' },
-              { name: 'Jeep', logo: 'https://cdn.simpleicons.org/jeep/0F172A' },
-              { name: 'Toyota', logo: 'https://cdn.simpleicons.org/toyota/0F172A' },
-              { name: 'Kia', logo: 'https://cdn.simpleicons.org/kia/0F172A' },
-              { name: 'Hyundai', logo: 'https://cdn.simpleicons.org/hyundai/0F172A' },
-              { name: 'Volkswagen', logo: 'https://cdn.simpleicons.org/volkswagen/0F172A' },
-              { name: 'Skoda', logo: 'https://cdn.simpleicons.org/skoda/0F172A' },
-              { name: 'Volvo', logo: 'https://cdn.simpleicons.org/volvo/0F172A' },
-              { name: 'Nissan', logo: 'https://cdn.simpleicons.org/nissan/0F172A' },
-              { name: 'BMW', logo: 'https://cdn.simpleicons.org/bmw/0F172A' },
-              { name: 'Audi', logo: 'https://cdn.simpleicons.org/audi/0F172A' },
-              { name: 'Porsche', logo: 'https://cdn.simpleicons.org/porsche/0F172A' },
-              { name: 'Jeep', logo: 'https://cdn.simpleicons.org/jeep/0F172A' },
-              { name: 'Toyota', logo: 'https://cdn.simpleicons.org/toyota/0F172A' },
-              { name: 'Kia', logo: 'https://cdn.simpleicons.org/kia/0F172A' },
-              { name: 'Hyundai', logo: 'https://cdn.simpleicons.org/hyundai/0F172A' },
-              { name: 'Volkswagen', logo: 'https://cdn.simpleicons.org/volkswagen/0F172A' },
-              { name: 'Skoda', logo: 'https://cdn.simpleicons.org/skoda/0F172A' },
-              { name: 'Volvo', logo: 'https://cdn.simpleicons.org/volvo/0F172A' },
-              { name: 'Nissan', logo: 'https://cdn.simpleicons.org/nissan/0F172A' }
-            ].map((brand, i) => (
-              <div key={i} className="flex-shrink-0 group px-2">
-                <div className="w-[180px] md:w-[220px] bg-white rounded-[2rem] p-8 border border-gray-100 shadow-md hover:shadow-2xl hover:border-[#D4AF37]/40 hover:-translate-y-2 transition-all duration-300 overflow-hidden relative flex flex-col items-center justify-center gap-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-[#F8FAFC] rounded-2xl flex items-center justify-center p-5 group-hover:scale-110 group-hover:bg-[#D4AF37]/5 transition-all duration-300 relative z-10 shadow-inner">
-                    <img src={brand.logo} alt={`${brand.name} compatible car accessories & custom modifications`} loading="lazy" className="w-full h-full object-contain filter opacity-100 group-hover:drop-shadow-lg transition-all duration-300" />
+                <div>
+                  <div className="w-full h-52 rounded-2xl overflow-hidden mb-6 relative bg-gray-100">
+                    <ImagePlaceholder 
+                      src={prod.image} 
+                      alt={prod.name} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      fallbackText={prod.name}
+                    />
+                    <span className="absolute top-3 left-3 bg-[#0F172A] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                      {prod.category}
+                    </span>
                   </div>
-                  
-                  <span className="font-heading font-extrabold text-sm md:text-base text-gray-700 group-hover:text-[#0F172A] tracking-widest uppercase transition-colors duration-300 relative z-10">
-                    {brand.name}
+                  <div className="flex items-center gap-1 text-[#D4AF37] text-xs mb-2">
+                    <Star size={14} fill="#D4AF37" />
+                    <span className="font-bold text-gray-800">{prod.rating}</span>
+                    <span className="text-gray-400">({prod.reviews} reviews)</span>
+                  </div>
+                  <h4 className="font-heading font-bold text-lg text-[#0F172A] mb-2 leading-snug group-hover:text-[#D4AF37] transition-colors">
+                    {prod.name}
+                  </h4>
+                  <p className="text-gray-500 text-xs line-clamp-2 leading-relaxed mb-4">
+                    {prod.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {prod.compatibleCars.map(c => (
+                      <span key={c} className="text-[10px] font-semibold bg-gray-100 text-gray-700 px-2 py-0.5 rounded-md">
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-100 px-3 py-1.5 rounded-lg">
+                    Showcase Spec
                   </span>
+                  <Link
+                    to={`/shop?search=${encodeURIComponent(prod.targetKeyword)}`}
+                    className="text-xs font-bold uppercase tracking-wider bg-[#0F172A] hover:bg-[#D4AF37] hover:text-black text-white px-4 py-2.5 rounded-xl transition-colors"
+                  >
+                    Explore Specs
+                  </Link>
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/shop">
+              <Button size="lg" className="bg-[#D4AF37] text-black hover:bg-[#0F172A] hover:text-white uppercase tracking-widest text-xs px-8">
+                Explore Full 2026 Catalog
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Dynamic Testimonial Slider */}
-      <section className="py-32 bg-[#1E293B] text-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-10">
-           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><pattern id="pattern" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 40L40 0H20L0 20M40 40V20L20 40" stroke="currentColor" strokeWidth="1" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(#pattern)"/></svg>
-        </div>
-        
-        <div className="container relative z-10 mx-auto px-4">
+      {/* Why Choose Us */}
+      <section className="py-28 bg-[#0F172A] text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-[#D4AF37]/5 to-transparent pointer-events-none"></div>
+        <div className="container mx-auto px-4 lg:px-16 relative z-10">
           <div className="text-center mb-16">
-            <motion.h2 
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-[#D4AF37] tracking-[0.2em] uppercase text-sm font-semibold mb-3 inline-block"
-            >
-              Elite Community
-            </motion.h2>
-            <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-heading font-bold mt-2"
-            >
-              Driven Experiences
-            </motion.h3>
+            <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-xs md:text-sm font-semibold mb-3 inline-block border border-[#D4AF37]/30 rounded-full px-6 py-2">
+              The Elite Advantage
+            </h2>
+            <h3 className="text-3xl md:text-5xl font-heading font-bold mt-4 tracking-tight">
+              Why Car Owners Trust EliteModz
+            </h3>
           </div>
 
-          <div className="max-w-4xl mx-auto relative min-h-[300px]">
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { 
+                icon: ShieldCheck, 
+                title: "100% Warranty Safe", 
+                desc: "All our ambient light for car, car projector light, and dash cam guides feature zero-wire-cut fuse tap and OEM coupler specifications." 
+              },
+              { 
+                icon: Wrench, 
+                title: "Non-Destructive Fitting", 
+                desc: "Technical wiring and placement walkthroughs created for DIY enthusiasts and independent car accessory technicians across India." 
+              },
+              { 
+                icon: Truck, 
+                title: "Curated Buying Research", 
+                desc: "Unbiased testing benchmarks, vehicle compatibility matrices, and styling recommendations for Baleno, Brezza, Swift, and Wagon R." 
+              }
+            ].map((feature, i) => (
+              <div 
+                key={i}
+                className="p-8 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-white/10 text-[#D4AF37]">
+                  <feature.icon className="w-8 h-8" strokeWidth={1.5} />
+                </div>
+                <h4 className="text-xl font-heading font-semibold mb-3 text-white">{feature.title}</h4>
+                <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-28 bg-[#1E293B] text-white relative overflow-hidden">
+        <div className="container relative z-10 mx-auto px-4 lg:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-xs md:text-sm font-semibold mb-2">
+              Community & Owner Reviews
+            </h2>
+            <h3 className="text-3xl md:text-5xl font-heading font-bold">
+              Loved by Baleno, Brezza, Swift & Wagon R Owners
+            </h3>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
             <TestimonialSlider />
           </div>
         </div>
       </section>
       
       {/* Dynamic CTA Section */}
-      <section className="py-32 relative overflow-hidden flex items-center justify-center min-h-[500px]">
-        {/* Animated Background Elements */}
-        <motion.div 
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-[50%] -left-[10%] w-[100%] h-[200%] bg-gradient-to-tr from-[#D4AF37] via-[#FDE047] to-[#D4AF37] opacity-90 block"
-        />
-        <div className="absolute inset-0 bg-[#0F172A]/10 backdrop-blur-[100px] z-10" />
-
+      <section className="py-24 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white">
         <div className="container relative z-20 mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-white/10 backdrop-blur-xl border border-white/20 p-12 md:p-20 rounded-[3rem] shadow-2xl max-w-5xl mx-auto"
-          >
-            <h2 className="text-4xl md:text-7xl font-heading font-extrabold text-[#0F172A] mb-8 tracking-tighter">
-              Ready To Upgrade <br/> <span className="text-white">Your Drive?</span>
+          <div className="bg-white/5 backdrop-blur-xl border border-white/15 p-10 md:p-16 rounded-[2.5rem] shadow-2xl max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">
+              Ready To Upgrade <span className="text-[#D4AF37]">Your Car?</span>
             </h2>
-            <p className="text-xl md:text-2xl text-[#0F172A]/80 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
-              Experience the pinnacle of automotive customization. Masterfully crafted aesthetics, engineering, and passion.
+            <p className="text-base md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Explore ambient light for car, car projector light, the best dash cam for car in India, custom seat covers, and exterior car accessories in our curated design showcase.
             </p>
             <Link to="/shop">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative bg-[#0F172A] text-white overflow-hidden rounded-full uppercase tracking-[0.2em] text-lg font-semibold px-12 h-20 inline-flex items-center justify-center shadow-2xl"
-              >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
-                <span>Begin Your Journey</span>
-                <ArrowRight size={24} className="ml-4 group-hover:translate-x-2 transition-transform" />
-              </motion.button>
+              <Button size="lg" className="bg-[#D4AF37] text-black hover:bg-white text-xs md:text-sm font-bold uppercase tracking-widest px-10 h-14">
+                Explore Showcase & Fitment Specs
+              </Button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 

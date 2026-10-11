@@ -146,8 +146,8 @@ export function Navbar() {
                       <CheckCircle2 size={16} className="text-[#D4AF37]" />
                     </div>
                     <div>
-                      <p className="text-white text-xs font-semibold">Added to Cart</p>
-                      <p className="text-gray-400 text-[10px]">Ready for checkout</p>
+                      <p className="text-white text-xs font-semibold">Saved to Showcase</p>
+                      <p className="text-gray-400 text-[10px]">Added to inspiration list</p>
                     </div>
                   </motion.div>
                 )}

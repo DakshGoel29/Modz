@@ -3,8 +3,8 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 export interface WishlistItem {
   id: string;
   name: string;
-  price: number;
   image: string;
+  category?: string;
 }
 
 interface WishlistContextType {

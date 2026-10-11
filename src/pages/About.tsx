@@ -1,165 +1,147 @@
 import { motion } from 'motion/react';
-import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
+import { SEO } from '../components/common/SEO';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
+import { POPULAR_CAR_MODELS } from '../data/mockData';
+import { Link } from 'react-router-dom';
+import { Sparkles, Shield, Wrench, HeartHandshake, ShieldAlert } from 'lucide-react';
 
 export default function About() {
   return (
     <div className="bg-white min-h-screen pt-24 pb-24">
+      <SEO 
+        title="About EliteModz: Car Accessories & Styling Hub India"
+        description="Discover EliteModz, an educational showcase for ambient light for car, car projector light, best dash cam for car in India & custom seat covers."
+        canonicalPath="/about"
+      />
       <div className="container mx-auto px-4">
+        <Breadcrumbs items={[{ label: 'About Us' }]} className="mb-4" />
         
         {/* Banner */}
-        <div className="relative rounded-3xl overflow-hidden min-h-[500px] flex items-center justify-center mb-24 lg:min-h-[600px] shadow-2xl">
-          <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="relative rounded-3xl overflow-hidden min-h-[480px] flex items-center justify-center mb-20 lg:min-h-[550px] shadow-2xl">
+          <div className="absolute inset-0 bg-black/60 z-10"></div>
           <img 
             src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=2000" 
             className="absolute inset-0 w-full h-full object-cover" 
-            alt="Premium sports car in garage"
+            alt="EliteModz Automotive Styling & Educational Showcase"
           />
-          <div className="relative z-20 text-center text-white px-4">
+          <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] px-4 py-1.5 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase mb-6">
+              <Sparkles size={14} /> Educational Showcase & Automotive Styling Hub
+            </div>
             <motion.h1 
               initial={{ y: 30, opacity: 0 }} 
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold mb-6 tracking-tighter"
+              className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold mb-6 tracking-tight leading-tight"
             >
-              Driven By Passion.<br/>Powered By Innovation.
+              Driven By Passion.<br/>Engineered For India.
             </motion.h1>
+            <p className="text-gray-200 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Curating architectural insights on ambient lighting, high-throw optical headlights, high-end dash cams, and custom-tailored interior comfort accessories for Indian car owners.
+            </p>
+          </div>
+        </div>
+
+        {/* Academic Project Disclaimer */}
+        <div className="max-w-4xl mx-auto mb-16 p-6 rounded-3xl bg-amber-50 border border-amber-200 flex items-start gap-4 text-amber-900">
+          <ShieldAlert size={22} className="text-amber-600 shrink-0 mt-0.5" />
+          <div className="text-xs md:text-sm leading-relaxed">
+            <strong className="text-amber-950 font-bold block mb-1">Non-Commercial Student Demonstration Project</strong>
+            EliteModz is an academic educational portfolio created for studying digital marketing strategies, web design, and search engine optimization in the automotive accessory vertical. We do not sell physical products, operate a commercial storefront, or process financial transactions. All content is intended for research, knowledge sharing, and styling inspiration.
           </div>
         </div>
 
         {/* Story */}
         <div className="max-w-4xl mx-auto text-center mb-24">
-          <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-sm font-semibold mb-6">Our Story</h2>
-          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            Founded in 2018, EliteModz started with a simple mission: to bring premium automotive accessories and customization solutions to car enthusiasts across India.
-            What began as a small garage operation has grown into one of India's fastest-growing automotive lifestyle brands. Today, we are the go-to destination for car light accessories, ambient light for car, custom seat cover for car solutions, sun shades for car, and the best dash cam for car in India.
+          <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-xs md:text-sm font-semibold mb-4">Our Mission & Concept</h2>
+          <h3 className="text-3xl md:text-4xl font-heading font-bold text-[#0F172A] mb-6">
+            An Informational Hub Built Around Automotive Passion
+          </h3>
+          <p className="text-base md:text-xl text-gray-700 leading-relaxed mb-6 font-normal">
+            EliteModz was established to explore how Indian car enthusiasts research and personalize their vehicles with warranty-safe, plug-and-play accessories. Rather than relying on generic mass-market components, we document durable solutions tailored to Indian roads, climate, and driving dynamics.
+          </p>
+          <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            Today, EliteModz acts as a comprehensive reference guide for high-grade <strong>ambient light for car</strong>, optically aligned <strong>car projector light</strong> units, the <strong>best dash cam for car in India</strong>, luxurious <strong>seat cover for car</strong> kits, UV-blocking magnetic <strong>sun shades for car</strong>, solar <strong>best car perfume</strong>, and specialized <strong>exterior car accessories</strong> for <strong>Baleno</strong>, <strong>Brezza</strong>, <strong>Swift</strong>, and <strong>Wagon R</strong>.
           </p>
         </div>
 
+        {/* Core Values */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 max-w-5xl mx-auto">
+          <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 text-center hover:border-[#D4AF37]/50 transition-all">
+            <div className="w-14 h-14 rounded-2xl bg-[#0F172A] text-[#D4AF37] flex items-center justify-center mx-auto mb-6">
+              <Shield size={28} />
+            </div>
+            <h4 className="font-heading font-bold text-lg text-[#0F172A] mb-2">Zero-Splicing Principles</h4>
+            <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
+              Every light and electronics accessory guide emphasizes OEM fuse taps and coupler connections, promoting manufacturer warranty safety.
+            </p>
+          </div>
+          <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 text-center hover:border-[#D4AF37]/50 transition-all">
+            <div className="w-14 h-14 rounded-2xl bg-[#0F172A] text-[#D4AF37] flex items-center justify-center mx-auto mb-6">
+              <Wrench size={28} />
+            </div>
+            <h4 className="font-heading font-bold text-lg text-[#0F172A] mb-2">Laser-Measured Tailoring</h4>
+            <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
+              Seat covers and sun shades feature 3D laser-scanned specifications for millimeter precision in Swift, Baleno, Brezza, and Wagon R.
+            </p>
+          </div>
+          <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 text-center hover:border-[#D4AF37]/50 transition-all">
+            <div className="w-14 h-14 rounded-2xl bg-[#0F172A] text-[#D4AF37] flex items-center justify-center mx-auto mb-6">
+              <HeartHandshake size={28} />
+            </div>
+            <h4 className="font-heading font-bold text-lg text-[#0F172A] mb-2">All-India Car Community</h4>
+            <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
+              Connecting automotive enthusiasts and DIY installers with verified buying benchmarks, troubleshooting tips, and styling ideas.
+            </p>
+          </div>
+        </div>
+
         {/* Timeline */}
-        <div className="bg-[#0F172A] text-white rounded-3xl p-12 md:p-20 mb-24 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#D4AF3715_0%,_transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-          <motion.div 
-            animate={{ rotate: 360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-20 -right-20 opacity-5 pointer-events-none"
-          >
-            <svg width="400" height="400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
-          </motion.div>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-heading font-extrabold mb-20 text-center tracking-tight"
-          >
-            Journey of <span className="text-[#D4AF37]">Excellence</span>
-          </motion.h2>
+        <div className="bg-[#0F172A] text-white rounded-3xl p-10 md:p-16 mb-24 relative overflow-hidden group">
+          <h2 className="text-3xl md:text-4xl font-heading font-extrabold mb-16 text-center tracking-tight">
+            Journey of <span className="text-[#D4AF37]">The Project</span>
+          </h2>
 
-          <div className="relative">
-            {/* Connecting Line */}
-            <div className="absolute top-[4.5rem] left-0 right-0 h-[1px] bg-white/20 hidden md:block">
-              <motion.div 
-                className="h-full bg-gradient-to-r from-[#D4AF37] to-white"
-                initial={{ width: "0%" }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-              />
-            </div>
-
-            <div className="grid md:grid-cols-5 gap-8">
-              {[
-                { year: '2018', event: 'Founded' },
-                { year: '2019', event: 'First 1k Customers' },
-                { year: '2021', event: 'PAN India Expansion' },
-                { year: '2023', event: '50k+ Orders' },
-                { year: '2025', event: 'Smart Tech Launch' },
-              ].map((milestone, i) => (
-                <motion.div 
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.2, duration: 0.6 }}
-                  whileHover={{ y: -10 }}
-                  key={i} 
-                  className="text-center relative group/item"
-                >
-                  <motion.div 
-                    className="text-4xl font-heading font-bold text-[#D4AF37] mb-6 opacity-40 group-hover/item:opacity-100 group-hover/item:scale-110 transition-all duration-300"
-                  >
-                    {milestone.year}
-                  </motion.div>
-                  <div className="w-6 h-6 rounded-full mx-auto mb-6 relative z-10 bg-[#0F172A] border-2 border-[#D4AF37] flex items-center justify-center group-hover/item:shadow-[0_0_15px_#D4AF37]">
-                    <motion.div 
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.2 + 0.3 }}
-                      className="w-2 h-2 bg-white rounded-full group-hover/item:bg-[#D4AF37] transition-colors"
-                    />
-                  </div>
-                  <div className="text-sm font-medium tracking-widest uppercase text-gray-400 group-hover/item:text-white transition-colors duration-300">
-                    {milestone.event}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { year: '2024', event: 'Digital Showcase Inception' },
+              { year: '2025', event: 'Ambient Light & Camera Guides' },
+              { year: '2025', event: 'Maruti Model Collections' },
+              { year: '2026', event: '50k+ Community Readers' },
+            ].map((milestone, i) => (
+              <div key={i} className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                <div className="text-3xl font-heading font-bold text-[#D4AF37] mb-2">
+                  {milestone.year}
+                </div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-gray-300">
+                  {milestone.event}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Team / Visionaries (Dynamic Slider) */}
-        <div className="text-center mb-16 relative overflow-hidden">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-[#D4AF37] tracking-[0.2em] uppercase text-sm font-semibold mb-3">The Minds Behind EliteModz</h2>
-            <h2 className="text-4xl md:text-6xl font-heading font-bold mb-16 text-[#0F172A] tracking-tight">The Visionaries</h2>
-          </motion.div>
-          
-          <div className="max-w-6xl mx-auto relative px-4 md:px-12">
-            <div className="overflow-hidden">
-              <motion.div 
-                className="flex gap-8 w-max"
-                animate={{ x: ["0%", "-50%"] }}
-                transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+        {/* Explore Specific Models */}
+        <div className="bg-[#F8FAFC] border border-gray-200 rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto">
+          <h3 className="text-2xl font-heading font-bold text-[#0F172A] mb-3">
+            Ready to Discover Accessories for Your Vehicle?
+          </h3>
+          <p className="text-sm text-gray-600 mb-8 max-w-xl mx-auto">
+            Browse our dedicated collections for Baleno car accessories, Brezza car accessories, Swift car accessories, and Wagon R car accessories.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {POPULAR_CAR_MODELS.map(m => (
+              <Link
+                key={m.name}
+                to={`/shop?model=${m.name}`}
+                className="bg-white border border-gray-300 hover:border-[#D4AF37] text-[#0F172A] px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-[#0F172A] hover:text-white transition-all shadow-sm"
               >
-                {/* Double the array for seamless infinite loop */}
-                {[
-                  { name: 'Daksh Goel', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400' },
-                  { name: 'Karan Bedi', role: 'Head Of Operations', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400' },
-                  { name: 'Riya Kapoor', role: 'Creative Director', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400' },
-                  { name: 'Siddharth Jain', role: 'Technology Lead', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400' },
-                  { name: 'Daksh Goel', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400' },
-                  { name: 'Karan Bedi', role: 'Head Of Operations', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400' },
-                  { name: 'Riya Kapoor', role: 'Creative Director', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400' },
-                  { name: 'Siddharth Jain', role: 'Technology Lead', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400' },
-                ].map((member, i) => (
-                  <div key={i} className="min-w-[280px] md:min-w-[320px] shrink-0 group overflow-hidden rounded-3xl bg-white border border-gray-100 p-10 text-center hover:border-[#D4AF37]/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-[#0F172A] to-gray-700 text-white flex items-center justify-center text-3xl font-bold font-heading mx-auto mb-8 shadow-xl relative group-hover:scale-110 transition-transform duration-500">
-                      <div className="absolute inset-0 rounded-full border-2 border-[#D4AF37] scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      {member.name.split(' ').map(n => n[0]).join('').substring(0,2)}
-                    </div>
-                    <h3 className="text-2xl font-heading font-bold text-[#0F172A] group-hover:text-[#D4AF37] transition-colors">{member.name}</h3>
-                    <p className="text-gray-500 font-semibold tracking-widest text-xs uppercase mt-3">{member.role}</p>
-                    <div className="w-12 h-1 bg-gray-100 mx-auto mt-6 group-hover:bg-[#D4AF37] transition-colors duration-500"></div>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-            
-            {/* Edge fades for seamless effect */}
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+                {m.tag}
+              </Link>
+            ))}
           </div>
         </div>
 
-        <div className="text-center py-16 border-t border-gray-200">
-           <h2 className="text-2xl md:text-4xl font-heading font-semibold text-gray-800 leading-tight">
-             "To redefine automotive personalization through premium products <br/>and exceptional customer experiences."
-           </h2>
-        </div>
       </div>
     </div>
   );

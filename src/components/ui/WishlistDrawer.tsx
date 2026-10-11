@@ -1,4 +1,4 @@
-import { X, Trash2, Heart, ShoppingCart } from 'lucide-react';
+import { X, Trash2, Heart, ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useWishlist } from '../../context/WishlistContext';
 import { useCart } from '../../context/CartContext';
@@ -18,7 +18,6 @@ export function WishlistDrawer({ isOpen, onClose }: WishlistDrawerProps) {
     addToCart({
       id: item.id,
       name: item.name,
-      price: item.price,
       image: item.image
     });
     removeFromWishlist(item.id);
@@ -68,13 +67,13 @@ export function WishlistDrawer({ isOpen, onClose }: WishlistDrawerProps) {
                     <ImagePlaceholder src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded-lg" fallbackText={item.name} fallbackIcon={false} />
                     <div className="flex-1">
                       <h4 className="font-semibold text-[#0F172A] text-sm md:text-base line-clamp-1">{item.name}</h4>
-                      <div className="text-[#D4AF37] font-bold mt-1">₹{item.price.toLocaleString('en-IN')}</div>
+                      <div className="text-gray-500 text-xs font-medium mt-1">Showcase Reference Item</div>
                       
                       <button 
                         onClick={() => handleAddToCart(item)}
                         className="mt-2 text-xs font-bold uppercase tracking-wider text-[#0F172A] hover:text-[#D4AF37] flex items-center gap-1 transition-colors"
                       >
-                        <ShoppingCart size={14} /> Move to Cart
+                        <ShoppingBag size={14} /> Move to Showcase List
                       </button>
                     </div>
                     <button 

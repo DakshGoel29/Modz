@@ -1,175 +1,168 @@
 import { motion } from 'motion/react';
-import { SERVICES } from '../data/mockData';
-import { Button } from '../components/ui/Button';
-import { CheckCircle2, ChevronRight } from 'lucide-react';
+import { SERVICES, POPULAR_CAR_MODELS } from '../data/mockData';
+import { CheckCircle2, ChevronRight, Sparkles } from 'lucide-react';
 import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
 import { SEO } from '../components/common/SEO';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
+import { Link } from 'react-router-dom';
 
 export default function Services() {
+  const serviceListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Car Accessories Fitment and Installation Guides",
+    "description": "Guides for ambient light for car, car projector light, dash cam hardwiring, and custom seat covers for Baleno, Brezza, Swift, and Wagon R.",
+    "itemListElement": SERVICES.map((service, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": service.name,
+      "description": service.description
+    }))
+  };
+
   return (
     <div className="bg-white min-h-screen pt-24 pb-24">
       <SEO 
-        title="Car Customization & Installation Services Gurugram | EliteModz"
-        description="Professional ambient light for car, car projector light, dash cam hardwiring & seat cover installation services in Gurugram, Haryana. 100% warranty safe."
+        title="Car Accessories & Fitment Guides | EliteModz"
+        description="Installation guides for ambient light for car, car projector light, dash cam setups & custom seat covers for Baleno, Brezza, Swift & Wagon R."
         canonicalPath="/services"
+        schema={serviceListSchema}
       />
       {/* Header */}
-      <div className="bg-[#0F172A] relative py-20 mb-16 overflow-hidden">
+      <div className="bg-[#0F172A] relative py-20 mb-12 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
-          <ImagePlaceholder src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="EliteModz Car Customization Workshop in Gurugram" fallbackText="Services" />
+          <ImagePlaceholder src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="EliteModz Car Customization & Installation Showcase" fallbackText="Services" />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center text-white">
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase mb-6"
+            className="inline-flex items-center gap-2 bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] px-4 py-1.5 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase mb-6"
           >
-            Studio in Sector 44, Gurugram
+            <Sparkles size={14} /> Non-Commercial Educational Showcase & Guides
           </motion.div>
-          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4">
-            Car Customization & Installation Services
+          <h1 className="text-3xl md:text-5xl font-heading font-extrabold mb-4 uppercase tracking-wider">
+            Car Customization & Fitment Guides
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Professional fitting for ambient light for car, car projector lights, best dash cam for car in India, custom seat covers, and exterior car accessories by certified master technicians.
+          <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Technical installation walkthroughs for <strong>ambient light for car</strong>, <strong>car projector light</strong>, the <strong>best dash cam for car in India</strong>, custom <strong>seat cover for car</strong>, <strong>sun shades for car</strong>, and <strong>exterior car accessories</strong> for <strong>Baleno</strong>, <strong>Brezza</strong>, <strong>Swift</strong>, and <strong>Wagon R</strong>.
           </p>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 -mt-10 relative z-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4 -mt-6 relative z-20">
+        <div className="max-w-5xl mx-auto mb-6">
+          <Breadcrumbs items={[{ label: 'Fitment Guides' }]} />
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {SERVICES.map((service, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -6 }}
               key={service.id}
-              className="border border-gray-100 rounded-[2rem] p-8 hover:shadow-2xl transition-all duration-500 hover:border-[#D4AF37]/30 group bg-white relative overflow-hidden flex flex-col shadow-sm"
+              className="border border-gray-100 rounded-[2rem] p-8 hover:shadow-2xl transition-all duration-300 hover:border-[#D4AF37]/40 group bg-white relative overflow-hidden flex flex-col shadow-sm"
             >
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gray-50 rounded-bl-full -z-10 group-hover:bg-[#D4AF37]/5 transition-colors duration-700"></div>
-              
-              <div className="w-full h-56 rounded-2xl overflow-hidden mb-8 relative">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                />
-                <motion.div 
-                  className="absolute bottom-4 left-4 right-4 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 text-white font-medium text-sm text-center"
-                >
-                  View Details
-                </motion.div>
+              <div className="w-full h-56 rounded-2xl overflow-hidden mb-6 relative">
                 <ImagePlaceholder 
                   src={service.image} 
-                  alt={`${service.name} - Professional automotive installation at EliteModz Gurugram`} 
-                  className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out" 
+                  alt={`${service.name} - Fitment Architecture Guide`} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
                   fallbackText={service.name} 
                 />
               </div>
 
-              <h3 className="text-2xl font-heading font-extrabold text-[#0F172A] mb-3 group-hover:text-[#D4AF37] transition-colors duration-300 tracking-tight">{service.name}</h3>
-              <p className="text-gray-500 mb-8 flex-grow leading-relaxed font-light">{service.description}</p>
+              <h3 className="text-2xl font-heading font-bold text-[#0F172A] mb-3 group-hover:text-[#D4AF37] transition-colors duration-300">
+                {service.name}
+              </h3>
+              <p className="text-gray-500 mb-6 flex-grow leading-relaxed text-sm">
+                {service.description}
+              </p>
               
-              <div className="mb-8 p-5 bg-[#F8FAFC] rounded-2xl border border-gray-100 group-hover:border-[#D4AF37]/20 group-hover:bg-[#D4AF37]/5 transition-colors duration-500 relative overflow-hidden">
-                <div className="absolute -right-4 -top-4 w-16 h-16 bg-[#D4AF37]/10 rounded-full blur-xl group-hover:bg-[#D4AF37]/20 transition-all duration-500"></div>
-                <span className="text-[10px] text-gray-500 uppercase tracking-widest block mb-1 font-bold">Starting from</span>
-                <span className="text-3xl font-heading font-extrabold text-[#0F172A] group-hover:text-[#D4AF37] transition-colors duration-300">₹{service.startPrice.toLocaleString('en-IN')}</span>
+              <div className="mb-6 p-4 bg-[#F8FAFC] rounded-2xl border border-gray-100 group-hover:border-[#D4AF37]/20 transition-colors">
+                <span className="text-[10px] text-gray-500 uppercase tracking-widest block mb-1 font-bold">Fitment Specification</span>
+                <span className="text-sm font-heading font-bold text-[#0F172A]">
+                  Zero-Wire Splicing & Plug-and-Play Couplers
+                </span>
               </div>
 
-              <ul className="space-y-4 mb-8">
-                {['Premium Quality Assessment', 'Expert Technicians', 'Guaranteed Satisfaction'].map((feature, j) => (
-                  <motion.li 
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + (j * 0.1), duration: 0.5 }}
-                    viewport={{ once: true }}
-                    key={j} 
-                    className="flex items-center gap-3 text-sm text-gray-600 font-medium"
-                  >
-                    <div className="w-6 h-6 rounded-full bg-[#0F172A] flex items-center justify-center shrink-0 group-hover:bg-[#D4AF37] transition-colors duration-300">
-                      <CheckCircle2 size={12} className="text-white" />
+              <ul className="space-y-3 mb-8">
+                {[
+                  '100% Zero-Wire-Cut Fuse Tap Installation',
+                  'Vehicle-Specific Coupler Fitment',
+                  'Warranty-Safe Electrical Architecture'
+                ].map((feature, j) => (
+                  <li key={j} className="flex items-center gap-3 text-xs md:text-sm text-gray-600 font-medium">
+                    <div className="w-5 h-5 rounded-full bg-[#0F172A] flex items-center justify-center shrink-0 group-hover:bg-[#D4AF37] transition-colors">
+                      <CheckCircle2 size={12} className="text-white group-hover:text-black" />
                     </div>
                     <span>{feature}</span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
 
-              <motion.button 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#0F172A] text-white py-4 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-2 group/btn hover:bg-[#D4AF37] transition-colors duration-300 mt-auto"
-              >
-                Book Consultation <ChevronRight size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-rotate-45 transition-all duration-300" />
-              </motion.button>
+              <Link to="/contact" className="mt-auto">
+                <button className="w-full bg-[#0F172A] text-white py-3.5 rounded-full font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 group/btn hover:bg-[#D4AF37] hover:text-black transition-colors">
+                  <span>Inquire About Fitment</span>
+                  <ChevronRight size={16} />
+                </button>
+              </Link>
             </motion.div>
           ))}
         </div>
 
-        {/* Process Section */}
-        <div className="mt-32 pt-24 pb-32 bg-[#050505] text-white rounded-[3rem] relative overflow-hidden -mx-4 md:-mx-8 px-8 md:px-16 shadow-2xl">
-          {/* Background effect */}
-          <div className="absolute inset-0 bg-[#0F172A]/20"></div>
-          <div className="absolute top-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_#D4AF3715_0%,_transparent_60%)] pointer-events-none"></div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-24 relative z-10"
-          >
-            <h2 className="text-4xl md:text-6xl font-heading font-extrabold text-white tracking-tighter">
-              The EliteModz <span className="text-[#D4AF37]">Process</span>
-            </h2>
-            <p className="text-gray-400 mt-6 max-w-2xl mx-auto text-lg leading-relaxed font-light">
-              A meticulously engineered sequence to translate your vision into reality. Every phase curated for absolute perfection.
-            </p>
-          </motion.div>
-          
-          <div className="relative max-w-7xl mx-auto z-10">
-            {/* Animated Connecting Line */}
-            <div className="hidden md:block absolute top-[2.5rem] left-[10%] right-[10%] h-[2px] bg-white/10 -z-10">
-               <motion.div 
-                  className="h-full bg-gradient-to-r from-[#D4AF37] via-[#D4AF37] to-transparent"
-                  initial={{ width: "0%" }}
-                  whileInView={{ width: "100%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 2, ease: "easeInOut" }}
-               />
-            </div>
-            
-            <div className="grid md:grid-cols-4 gap-12 md:gap-8">
-              {[
-                { num: '01', title: 'Consultation', desc: 'Detailed discussion of your vision and vehicle requirements with our experts.' },
-                { num: '02', title: 'Quotation', desc: 'Transparent pricing with a detailed breakdown of premium parts and labor.' },
-                { num: '03', title: 'Execution', desc: 'Precision work by trained technicians in our clean-room facilities.' },
-                { num: '04', title: 'Delivery', desc: 'Final inspection, detailing, and an unforgettable handover experience.' }
-              ].map((step, i) => (
-                <motion.div 
-                  key={i} 
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.7, delay: i * 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-center group relative"
-                >
-                  {/* Number Badge */}
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#050505] border-[3px] border-[#D4AF37]/30 text-[#D4AF37] font-bold text-xl md:text-2xl flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.1)] group-hover:shadow-[0_0_50px_rgba(212,175,55,0.4)] group-hover:scale-110 group-hover:bg-[#D4AF37] group-hover:text-[#050505] transition-all duration-500 overflow-hidden z-10 mx-auto mb-6 md:mb-8">
-                    <span className="relative z-10">{step.num}</span>
-                  </div>
-                  
-                  {/* Content */}
-                  <div>
-                     <motion.h4 
-                        className="text-2xl md:text-2xl font-heading font-bold mb-4 text-white group-hover:text-[#D4AF37] transition-colors duration-500"
-                     >
-                        {step.title}
-                     </motion.h4>
-                     <p className="text-gray-400 text-sm md:text-base leading-relaxed font-light">{step.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+        {/* Vehicle Compatibility Banner */}
+        <div className="mt-20 p-8 rounded-3xl bg-[#F8FAFC] border border-gray-200 text-center max-w-4xl mx-auto">
+          <h3 className="text-xl font-heading font-bold text-[#0F172A] mb-2">
+            Specialized Fitment Specs for Top Models
+          </h3>
+          <p className="text-xs md:text-sm text-gray-600 max-w-2xl mx-auto mb-6">
+            We document custom wiring harness diagrams and mounting brackets specifically for Maruti Baleno car accessories, Maruti Brezza car accessories, Maruti Swift car accessories, and Maruti Wagon R car accessories.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {POPULAR_CAR_MODELS.map(m => (
+              <Link
+                key={m.name}
+                to={`/shop?model=${m.name}`}
+                className="bg-white border border-gray-200 hover:border-[#D4AF37] px-4 py-2 rounded-xl text-xs font-semibold text-gray-700 hover:text-[#0F172A] transition-all"
+              >
+                {m.tag}
+              </Link>
+            ))}
           </div>
         </div>
+
+        {/* Process Section */}
+        <div className="mt-24 pt-20 pb-24 bg-[#050505] text-white rounded-[3rem] px-8 md:px-16 shadow-2xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white tracking-tight">
+              The EliteModz <span className="text-[#D4AF37]">Installation Standard</span>
+            </h2>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+              Every upgrade guide—from ambient light for car to dash cameras and projector headlights—is researched and documented for safe aftermarket execution.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { num: '01', title: 'Inspection', desc: 'Pre-install voltage check and vehicle trim safety mapping.' },
+              { num: '02', title: 'Coupler Wiring', desc: 'Plug-and-play OEM-grade couplers without slicing original wires.' },
+              { num: '03', title: 'Precision Fit', desc: 'Laser-aligned projector headlamps and seamless acrylic light tucking.' },
+              { num: '04', title: 'Road Testing', desc: 'Optical beam check and full mobile application sync verification.' }
+            ].map((step, i) => (
+              <div key={i} className="text-center p-6 rounded-2xl bg-white/5 border border-white/10">
+                <div className="w-14 h-14 rounded-full bg-[#D4AF37] text-black font-extrabold text-xl flex items-center justify-center mx-auto mb-4">
+                  {step.num}
+                </div>
+                <h4 className="font-heading font-semibold text-lg text-white mb-2">{step.title}</h4>
+                <p className="text-xs text-gray-400 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );

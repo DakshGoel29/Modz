@@ -3,9 +3,9 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 export interface CartItem {
   id: string;
   name: string;
-  price: number;
   image: string;
   quantity: number;
+  category?: string;
 }
 
 interface CartContextType {
@@ -14,7 +14,6 @@ interface CartContextType {
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
-  cartTotal: number;
   itemCount: number;
 }
 
@@ -51,11 +50,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const clearCart = () => setItems([]);
 
-  const cartTotal = items.reduce((total, item) => total + (item.price * item.quantity), 0);
   const itemCount = items.reduce((count, item) => count + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart, updateQuantity, clearCart, cartTotal, itemCount }}>
+    <CartContext.Provider value={{ items, addToCart, removeFromCart, updateQuantity, clearCart, itemCount }}>
       {children}
     </CartContext.Provider>
   );
