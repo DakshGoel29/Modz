@@ -88,16 +88,24 @@ export default function Reviews() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                <img 
-                  src={r.avatar} 
-                  alt={r.name} 
-                  className="w-11 h-11 rounded-full object-cover border border-[#D4AF37]" 
-                />
+              <div className="flex items-center gap-3.5 pt-4 border-t border-gray-100">
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#8B7322] text-[#0F172A] font-bold text-sm flex items-center justify-center shrink-0 border-2 border-[#D4AF37]/40 shadow-sm relative overflow-hidden select-none">
+                  <span className="uppercase font-bold text-xs">{r.name.split(' ').map((n: string) => n[0]).join('').substring(0, 2)}</span>
+                  <img 
+                    src={r.avatar} 
+                    alt={r.name} 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                </div>
                 <div>
-                  <h4 className="font-heading font-bold text-sm text-[#0F172A]">{r.name}</h4>
-                  <div className="text-xs text-gray-400">
-                    {r.car} • {r.city}
+                  <h4 className="font-heading font-bold text-base text-[#0F172A] leading-tight">
+                    {r.name}
+                  </h4>
+                  <div className="text-xs text-[#D4AF37] font-semibold mt-0.5">
+                    {r.car} • Community Reviewer
                   </div>
                 </div>
               </div>

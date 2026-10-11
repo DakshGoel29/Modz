@@ -94,7 +94,7 @@ export function Navbar() {
                   style={{ left: click.x - 20, top: click.y - 20, width: 40, height: 40 }}
                 />
               ))}
-              <span className="font-heading font-bold text-2xl text-white tracking-widest uppercase relative z-10 hidden sm:block">
+              <span className="font-heading font-bold text-lg sm:text-2xl text-white tracking-widest uppercase relative z-10 block">
                 Elite<span className="text-[#D4AF37]">Modz</span>
               </span>
             </Link>

@@ -278,7 +278,7 @@ export const TESTIMONIALS = [
   { 
     id: 1, 
     name: "Rahul Sharma", 
-    city: "Delhi", 
+    role: "Verified Owner", 
     car: "Maruti Baleno", 
     avatar: "https://randomuser.me/api/portraits/men/32.jpg", 
     rating: 5, 
@@ -287,7 +287,7 @@ export const TESTIMONIALS = [
   { 
     id: 2, 
     name: "Aman Verma", 
-    city: "Chandigarh", 
+    role: "Verified Owner", 
     car: "Maruti Brezza", 
     avatar: "https://randomuser.me/api/portraits/men/44.jpg", 
     rating: 5, 
@@ -296,7 +296,7 @@ export const TESTIMONIALS = [
   { 
     id: 3, 
     name: "Simran Kaur", 
-    city: "Delhi", 
+    role: "Verified Owner", 
     car: "Maruti Swift", 
     avatar: "https://randomuser.me/api/portraits/women/44.jpg", 
     rating: 5, 
@@ -305,16 +305,16 @@ export const TESTIMONIALS = [
   { 
     id: 4, 
     name: "Karan Mehta", 
-    city: "Delhi", 
+    role: "Verified Owner", 
     car: "Maruti Wagon R", 
     avatar: "https://randomuser.me/api/portraits/men/22.jpg", 
     rating: 5, 
-    text: "Upgraded my daily commuter with Wagon R car accessories ideas: magnetic sun shades for car and the best car perfume. The sun shades keep Delhi summer heat out completely." 
+    text: "Upgraded my daily commuter with Wagon R car accessories ideas: magnetic sun shades for car and the best car perfume. The sun shades keep extreme summer heat out completely." 
   },
   { 
     id: 5, 
     name: "Neha Singh", 
-    city: "Noida", 
+    role: "Verified Owner", 
     car: "Maruti Brezza", 
     avatar: "https://randomuser.me/api/portraits/women/24.jpg", 
     rating: 5, 
@@ -323,7 +323,7 @@ export const TESTIMONIALS = [
   { 
     id: 6, 
     name: "Vikram Patel", 
-    city: "Ahmedabad", 
+    role: "Verified Owner", 
     car: "Maruti Baleno", 
     avatar: "https://randomuser.me/api/portraits/men/67.jpg", 
     rating: 5, 
